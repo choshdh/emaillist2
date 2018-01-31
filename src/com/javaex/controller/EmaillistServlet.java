@@ -24,7 +24,7 @@ public class EmaillistServlet extends HttpServlet {
 		String actionName = request.getParameter("a");
 		if(actionName.equals("form")) {
 			System.out.println("form 진입");
-			RequestDispatcher rd = request.getRequestDispatcher("form.jsp"); //현재 받아온 request 요청값을 form.jsp 에 넘기겠다
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/form.jsp"); //현재 받아온 request 요청값을 form.jsp 에 넘기겠다
 			rd.forward(request, response);
 		}else if(actionName.equals("insert")) {
 			System.out.println("insert 진입");
@@ -50,7 +50,7 @@ public class EmaillistServlet extends HttpServlet {
 			EmaillistDAO dao = new EmaillistDAO();
 			List<EmailVO> l = dao.getList();
 			
-			RequestDispatcher rd = request.getRequestDispatcher("list.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/list.jsp");
 			request.setAttribute("l", l);
 			rd.forward(request, response);
 		}else {
